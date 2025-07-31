@@ -1,4 +1,4 @@
-# Sumai3 Repeat Annotation with RepeatMasker and Custom TE Library
+# Wheat Repeat Annotation with RepeatMasker and Custom TE Library
 
 This repository documents the pipeline used to annotate transposable elements (TEs) in wheat using **RepeatMasker v4.2.0** with a custom library combining sequences from **ClariTeRep** and **TREP**.
 
