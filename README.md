@@ -42,8 +42,10 @@ git clone https://github.com/jdaron/CLARI-TE.git
 cd CLARI-TE
 wget http://botserv2.uzh.ch/kelldata/trep-db/blast/dir_download/sequences.fasta
 cat clariTeRep.fna sequences.fasta > 1custom_wheat_TE_library.fasta
+```
 
 ## Run RepeatMasker (PBS Job Script)
+```
 #!/bin/bash
 #PBS -q bigmem
 #PBS -N full_repeat_annotation_sumai3_clarite_library_1
@@ -68,3 +70,4 @@ mkdir -p logs 3full_repeat_annotation
   -dir 3full_repeat_annotation \
   Sumai3_pm_v2.fasta \
   2>&1 | tee logs/04_simplemask.log
+```
