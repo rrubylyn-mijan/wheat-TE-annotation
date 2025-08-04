@@ -115,6 +115,7 @@ awk '{
 }' wheat_subgenomeD.xm | sort -nr
 
 # 4. Count non-overlapping base pairs per TE class (subgenome D)
+ml bedtools/2.30.0
 
 awk '{
   if ($10 ~ /#/) {
@@ -125,7 +126,7 @@ awk '{
       print $5 "\t" $6 "\t" $7 "\t" prefix;
     }
   }
-}' wheat_subgenomeD.xm | \
+}' wheat_subgenomeB.xm | \
 sort -k1,1 -k2,2n | \
 bedtools sort -i - | \
 bedtools merge -i - -c 4 -o distinct | \
@@ -137,7 +138,7 @@ awk '{
 }
 END {
   for (c in bp) printf "%s\t%.0f\n", c, bp[c];
-}' | sort
+}' | sort -k2,2nr
 ```
 
 Maintainer:
