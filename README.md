@@ -81,6 +81,8 @@ awk '$5 ~ /chr[1-7]B/' wheat.fasta.out.xm > wheat_subgenomeB.xm
 awk '$5 ~ /chr[1-7]D/' wheat.fasta.out.xm > wheat_subgenomeD.xm
 
 # 2. Calculate non-overlapping TE coverage per subgenome
+ml bedtools/2.30.0
+
 awk '{print $5 "\t" $6 "\t" $7}' wheat.fasta.out.xm | \
 awk '$1 ~ /chr[1-7][ABD]/' | sort -k1,1 -k2,2n | bedtools merge -i - | \
 awk '{
@@ -113,7 +115,6 @@ awk '{
 }' wheat_subgenomeD.xm | sort -nr
 
 # 4. Count non-overlapping base pairs per TE class (subgenome D)
-ml bedtools/2.30.0
 
 awk '{
   if ($10 ~ /#/) {
